@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>{%block title %}{% endblock %} | Multi Auth System</title>
+</head>
+<body>
+    <nav class="fixed top-0 left-0 right-0 py-2 border-gray-200 bg-gray-900 border-b z-10 uppercase">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <span class="self-center text-xl font-semibold whitespace-nowrap text-white capitalize">Multi Auth</span>
+        </a>
+        
+        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 tracking-wide" id="navbar-user">
+            <ul class="flex flex-col text-sm font-medium p-4 md:p-0 mt-4 border rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 bg-gray-800 md:bg-gray-900 border-gray-700">
+                <li>
+                    <a href="" class="block py-2 px-3 rounded md:p-0 text-white md:hover:text-blue-500 hover:bg-gray-700 md:hover:bg-transparent border-gray-700">Login</a>
+                </li>
+                <li>
+                    <a href="" class="block py-2 px-3 rounded md:p-0 text-white md:hover:text-blue-500 hover:bg-gray-700 md:hover:bg-transparent border-gray-700">Register</a>
+                </li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+
+    <div class="relative mx-auto mt-[7rem] min-h-screen">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>
