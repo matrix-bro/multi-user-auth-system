@@ -44,3 +44,11 @@ class RegisterForm(UserCreationForm):
         'placeholder': 'Confirm password',
         'class': INPUT_CLASSES
     }))
+
+class LoginForm(forms.Form):
+    username = forms.CharField(widget=forms.TextInput(attrs={
+        'class': INPUT_CLASSES
+    }))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={
+        'class': INPUT_CLASSES
+    }))  

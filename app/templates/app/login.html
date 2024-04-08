@@ -1,0 +1,30 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Log in{% endblock %}
+
+{% block content %}
+    <div class="lg:w-1/3 md:w-1/2 my-6 mx-auto p-6 bg-gray-100 rounded-xl">
+        <h1 class="mb-6 text-3xl text-center font-bold tracking-wide">Sign in</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <label class="inline-block mb-2 tracking-wide">Username or Email or Phone No.</label><br>
+                {{ form.username }}
+            </div>
+
+            <div class="mb-3">
+                <label class="inline-block mb-2 tracking-wide">Password</label><br>
+                {{ form.password }}
+            </div>
+
+            {% if error_message %}
+                <p class="bg-red-100 p-4 my-2">{{ error_message }}</p>
+            {% endif %}
+
+            <button class="py-3 px-8 text-lg bg-blue-500 hover:bg-blue-700 rounded-xl text-white">Login</button>
+        </form>
+    </div>
+
+{% endblock %}
