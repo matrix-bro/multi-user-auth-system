@@ -2,6 +2,7 @@ from django.shortcuts import render
 from app.forms import RegisterForm, LoginForm
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 
 def register(request):
     if request.method == 'POST':
@@ -43,6 +44,7 @@ def custom_login(request):
 """
 Regular User Dashboard
 """
+@login_required
 def dashboard(request):
     return render(request, 'app/dashboard.html')
 
