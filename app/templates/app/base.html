@@ -21,6 +21,11 @@
                 <li>
                     <a href="{% url 'index' %}" class="block py-2 px-3 rounded md:p-0 text-white md:hover:text-blue-500 hover:bg-gray-700 md:hover:bg-transparent border-gray-700">Home</a>
                 </li>
+                {% if dashboard_url %}
+                    <li>
+                        <a href="{% url dashboard_url %}" class="block py-2 px-3 rounded md:p-0 text-white md:hover:text-blue-500 hover:bg-gray-700 md:hover:bg-transparent border-gray-700">Dashboard</a>
+                    </li>
+                {% endif %}
                 {% if request.user.is_authenticated %}
                     <li>
                         <a href="{% url 'logout' %}" class="block py-2 px-3 rounded md:p-0 text-white md:hover:text-red-500 hover:bg-gray-700 md:hover:bg-transparent border-gray-700">Log out</a>
