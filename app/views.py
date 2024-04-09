@@ -2,7 +2,7 @@ from django.shortcuts import render
 from app.forms import RegisterForm, LoginForm
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 
 def register(request):
     if request.method == 'POST':
@@ -49,14 +49,16 @@ def dashboard(request):
     """
     return render(request, 'app/dashboard.html')
 
-
+@user_passes_test(lambda u: u.is_superuser)
+@login_required
 def super_dashboard(request):
     """
     Super User Dashboard
     """
     return render(request, 'app/super_dashboard.html')
 
-
+@user_passes_test(lambda u: u.is_staff)
+@login_required
 def staff_dashboard(request):
     """
     Staff User Dashboard
