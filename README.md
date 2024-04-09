@@ -50,3 +50,25 @@ python manage.py migrate
 ```bash
 python manage.py runserver
 ```
+
+## Usage
+
+1. Creating a Superuser Account (Using the Command-Line Interface (CLI))
+
+   - `python manage.py createsuperuser`
+
+2. Regular User Account
+
+   - Go to `register` page from the home page.
+   - Fill in all the details.
+   - After successfull registration, you will be redirected to `login` page.
+   - Login using `username` or `email` or `phone_no`.
+     - You will be redirected to your own dashboard.
+
+3. Staff Account (Note: Currently, Superuser need to grant staff privileges by checking the `Staff status`.)
+
+   - Go to `register` page from the home page.
+   - Fill in all the details.
+   - After successfull registration, you will be redirected to `login` page.
+   - After Superuser grant staff privileges, you can login using `username` or `email` or `phone_no`.
+     - You will be redirected to your own dashboard.

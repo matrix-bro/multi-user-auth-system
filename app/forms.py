@@ -12,7 +12,8 @@ class RegisterForm(UserCreationForm):
     
     first_name = forms.CharField(widget=forms.TextInput(attrs={
         'placeholder': 'John',
-        'class': INPUT_CLASSES
+        'class': INPUT_CLASSES,
+        'autofocus': True
     }))
 
     last_name = forms.CharField(widget=forms.TextInput(attrs={
