@@ -41,21 +41,24 @@ def custom_login(request):
         form = LoginForm()
     return render(request, 'app/login.html', {'form': form})
 
-"""
-Regular User Dashboard
-"""
+
 @login_required
 def dashboard(request):
+    """
+    Regular User Dashboard
+    """
     return render(request, 'app/dashboard.html')
 
-"""
-Super User Dashboard
-"""
+
 def super_dashboard(request):
+    """
+    Super User Dashboard
+    """
     return render(request, 'app/super_dashboard.html')
 
-"""
-Staff User Dashboard
-"""
+
 def staff_dashboard(request):
+    """
+    Staff User Dashboard
+    """
     return render(request, 'app/staff_dashboard.html')

@@ -128,3 +128,8 @@ AUTH_USER_MODEL = 'app.UserAccount'
 
 LOGIN_URL = 'login'
 LOGOUT_REDIRECT_URL = 'login'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'app.custom_auth_backend.EmailPhoneAuthBackend',
+]
