@@ -4,6 +4,9 @@ from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required, user_passes_test
 
+def index(request):
+    return render(request, 'app/index.html')
+
 def register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)

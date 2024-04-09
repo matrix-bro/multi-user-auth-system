@@ -31,7 +31,7 @@ class RegisterForm(UserCreationForm):
     }))
 
     phone_no = forms.CharField(widget=forms.TextInput(attrs={
-        'placeholder': '+977 987654321',
+        'placeholder': '987654321',
         'class': INPUT_CLASSES
     }))
 
