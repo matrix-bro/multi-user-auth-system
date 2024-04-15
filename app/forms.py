@@ -1,5 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
+from captcha.fields import CaptchaField
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
@@ -45,6 +46,8 @@ class RegisterForm(UserCreationForm):
         'placeholder': 'Confirm password',
         'class': INPUT_CLASSES
     }))
+    
+    captcha = CaptchaField()
 
 class LoginForm(forms.Form):
     username = forms.CharField(widget=forms.TextInput(attrs={
@@ -52,4 +55,5 @@ class LoginForm(forms.Form):
     }))
     password = forms.CharField(widget=forms.PasswordInput(attrs={
         'class': INPUT_CLASSES
-    }))  
+    })) 
+    captcha = CaptchaField()
