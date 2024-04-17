@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from captcha.fields import CaptchaField
+from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
@@ -48,6 +49,18 @@ class RegisterForm(UserCreationForm):
     }))
     
     captcha = CaptchaField()
+
+    def clean_password2(self) -> str:
+        password1 = self.cleaned_data.get('password1')
+        password2 = self.cleaned_data.get('password2')
+
+        if password1 and password2:
+            if password1 != password2:
+                raise forms.ValidationError("Passwords do not match.")
+            
+            validate_password(password2)
+            
+        return password2
 
 class LoginForm(forms.Form):
     username = forms.CharField(widget=forms.TextInput(attrs={
